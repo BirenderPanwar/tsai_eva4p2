@@ -1,5 +1,5 @@
 ## Assignment-1: 
-**Deploying pretrained network MobileNet_V2 over AWS using serverless computing.**
+**Deploying pretrained MobileNet_V2 network over AWS using serverless computing.**
 
 ## Overview
 
@@ -7,7 +7,7 @@
 * All the AWS resocures such as API end point, Lambda functions, Cloud Formations, application packages on S3 and many mores resoucres are created automatically. Its very coll as it takes all the burden of server resource managment from the user.
 * Application is deploy as AWS Lambda function which fetch model from S3 bucket.
 
-> Let's have quick summary step by step procedure to build and deploy AI applictaion oover AWS
+## Here is the quick summary of step by step procedure to build and deploy AI applictaion oover AWS
 
 1. Pre-Requisite: 
     * Oracle VM virtual Box
@@ -27,6 +27,8 @@
 ## Let's walk through on each steps in details
 
 ### Create a serverless function
+
+Making use of aws-python3 template to create service
 
 <p align="center"><img style="max-width:800px" src="doc_images/sls_create.png"></p>
 
@@ -102,7 +104,7 @@ Result:
 
 ### Demo site [(Visit)](http://www.aijourney.com.s3-website.ap-south-1.amazonaws.com/)
 
-Web page is hosted on S3 bucket to test the deployment. user can select image and check the calssification result 
+Web page is hosted on S3 bucket to test the deployment. user can select image and check the classification result 
 > NOTE: first image might take time for processing or might give timeout error, this is due to COLD start setup where Lambda function tries to downloads all the dependencies..
 
 Web Link: http://www.aijourney.com.s3-website.ap-south-1.amazonaws.com/

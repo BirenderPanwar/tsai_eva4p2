@@ -4,7 +4,7 @@
 ## Overview
 
 * Using serverless open source framework to build and run application on AWS. Serverless framwork manages all the resources in AWS and user need to just focus on their Application and problem solving.
-* All the AWS resocures such as API end point, Lambda functions, Cloud Formations, application packages on S3 and many mores resoucres are created automatically. Its very coll as it takes all the burden of server resource managment from the user.
+* All the AWS resocures such as API end point, Lambda functions, Cloud Formations, application packages on S3 and many mores resources are created automatically. It's very cool as it takes all the burden of server resource management from the user.
 * Application is deploy as AWS Lambda function which fetch model from S3 bucket.
 
 ## Here is the quick summary of step by step procedure to build and deploy AI applictaion over AWS
@@ -79,7 +79,7 @@ Execute the upload_model_to_s3.py python fle to upload the model(mobilenet_v2.pt
 
 <p align="center"><img style="max-width:800px" src="doc_images/npm_deploy_cli_status.png"></p>
 
-It creates all the necessary AWS resource for running the application. Restful API end point is created on AWS API gateway
+It creates all the necessary AWS resources for running the application. Restful API end point is created on AWS API gateway
 
 **API: https://wbihnhwhje.execute-api.ap-south-1.amazonaws.com/dev/clasify**
 
@@ -90,7 +90,7 @@ It creates all the necessary AWS resource for running the application. Restful A
 Insomnia API tool is used to test the deployment. Invoke API with following configurations:
 
 * HTTP Method: POST
-* URI: https://wbihnhwhje.execute-api.ap-south-1.amazonaws.com/dev/clasify**
+* URI: https://wbihnhwhje.execute-api.ap-south-1.amazonaws.com/dev/clasify
 * Content-Type: multipart/form-data
 * Select image file for claasification: test.jpg
 
@@ -102,13 +102,13 @@ Result:
 
 <p align="center"><img style="max-width:800px" src="doc_images/insomnia_header.png"></p>
 
-### Demo site [(Visit)](http://www.aijourney.com.s3-website.ap-south-1.amazonaws.com/)
+### Demo site [(Visit)](https://s3.ap-south-1.amazonaws.com/www.aijourney.com/s1_demo.html)
 
 Web page is hosted on S3 bucket to test the deployment. user can select image and check the classification result 
 > NOTE: first image might take time for processing or might give timeout error, this is due to COLD start setup where Lambda function tries to downloads all the dependencies..
 
-Web Link: http://www.aijourney.com.s3-website.ap-south-1.amazonaws.com/
+Web Link: https://s3.ap-south-1.amazonaws.com/www.aijourney.com/s1_demo.html
 
- 
+<p align="center"><img src="doc_images/s1_web_page.jpg" href="https://s3.ap-south-1.amazonaws.com/www.aijourney.com/s1_demo.html"></p>
 
 

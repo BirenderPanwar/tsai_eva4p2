@@ -95,7 +95,7 @@ Insomnia API tool is used to test the deployment. Invoke API with following conf
 * Select image file for claasification: test.jpg
 
 Test image:
-<p align="center"><img style="max-width:400px" src="doc_images/test.jpg"></p>
+<p align="center"><img src="doc_images/test.jpg"></p>
 
 Result:
 <p align="center"><img style="max-width:800px" src="doc_images/insomnia_result.png"></p>

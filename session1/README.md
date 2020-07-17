@@ -28,7 +28,7 @@
 
 ### Create a serverless function
 
-<p align="center"><img style="max-width:800px" src="doc_images/sls_create.png" alt="sls create"></p>
+<p align="center"><img style="max-width:800px" src="doc_images/sls_create.png"></p>
 
 <p align="center"><img style="max-width:800px" src="doc_images/sls_create_cli_status.png"></p>
 
@@ -37,7 +37,7 @@ Install a serverless plugin which helps bundling dependencies from a requirement
 
 <p align="center"><img style="max-width:800px" src="doc_images/sls_plugin.png"></p>
 
-<p align="center"><img style="max-width:800px" src="doc_images/sls_plugin_cli_status.png"></p>
+<p align="center"><img style="max-width:800px" src="doc_images/sls_plugn_cli_status.png"></p>
 
 ### Deployment script
 Deployment Package on AWS Lambda cannot be greater than 250MB (Pytorch itself can be 470MB or more!). so manually create requirements.txt file and add a link to python wheel file (.whl) for Pytorch and Lambda will directly install it for us! 
@@ -50,8 +50,8 @@ To enable deploying package through npm command, add a deploy script to package.
 <p align="center"><img style="max-width:800px" src="doc_images/package.png"></p>
 
 ### Update handler function in handler.py [(Link)](mobilenetv2-pytorch-aws/handler.py)
-This file shall define the entry handler fucntion for Lambda. It contains application specific code. Following fucntions are implemented in this file:
-1. S3 bucket and path for model file configutaion
+This file shall define the entry handler function for Lambda. It contains application specific code. Following functions are implemented in this file:
+1. S3 bucket and path for model file in S3
 2. Loading of model from S3 bucket
 3. Entry handler functions which will be invoke every time AWS Lanbda function is triggered.
 3. Processing of incoming image content and using model for image's classification
@@ -69,7 +69,7 @@ Create the pretrained mobilenet_v2 model using pytorch. Execute the python file:
 
 ### Uploading model on AWS S3 bucket [(Link)](mobilenetv2-pytorch-aws/model/upload_model_to_s3.py)
 
-Execute the upload_model_to_s3.py python fle to upload the model(mobilenet_v2.pt) onto S3 bucket. Alternatively, model file can be manually uploaded to S3 bucket through AWs console
+Execute the upload_model_to_s3.py python fle to upload the model(mobilenet_v2.pt) onto S3 bucket. Alternatively, model file can be manually uploaded to S3 bucket through AWS console
 <p align="center"><img style="max-width:800px" src="doc_images/upload_model.png" alt="upload model"></p>
 
 ### Finally, Deploy the package
@@ -81,12 +81,11 @@ It creates all the necessary AWS resource for running the application. Restful A
 
 **API: https://wbihnhwhje.execute-api.ap-south-1.amazonaws.com/dev/clasify**
 
-We need to allow multipart/form-data content type for the HTTP request and hence need to add these content type in API gateway 
-Binary Media Type: multipart/form-data
+> NOTE: We need to allow multipart/form-data content type for the HTTP request and hence visit AWS API gateway console and set "Binary Media Type" as "multipart/form-data"
 
 ### Testing Deployment
 
-Insomnia API tool is used to test the deployment. Invoke API with following configutaion:
+Insomnia API tool is used to test the deployment. Invoke API with following configurations:
 
 * HTTP Method: POST
 * URI: https://wbihnhwhje.execute-api.ap-south-1.amazonaws.com/dev/clasify**
@@ -94,7 +93,7 @@ Insomnia API tool is used to test the deployment. Invoke API with following conf
 * Select image file for claasification: test.jpg
 
 Test image:
-<p align="center"><img style="max-width:800px" src="doc_images/test.png"></p>
+<p align="center"><img style="max-width:800px" src="doc_images/test.jpg"></p>
 
 Result:
 <p align="center"><img style="max-width:800px" src="doc_images/insomnia_result.png"></p>
@@ -104,7 +103,7 @@ Result:
 ### Demo site [(Visit)](http://www.aijourney.com.s3-website.ap-south-1.amazonaws.com/)
 
 Web page is hosted on S3 bucket to test the deployment. user can select image and check the calssification result 
-> NOTE: first image might take time or might give timeout error due to COLD start setup where Lambda fucntion tries to downloads all the dependencies..
+> NOTE: first image might take time for processing or might give timeout error, this is due to COLD start setup where Lambda function tries to downloads all the dependencies..
 
 Web Link: http://www.aijourney.com.s3-website.ap-south-1.amazonaws.com/
 

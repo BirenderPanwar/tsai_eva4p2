@@ -1,5 +1,5 @@
 ## Assignment-1: 
-** Deploying pretrained network MobileNet_V2 over AWS. **
+**Deploying pretrained network MobileNet_V2 over AWS using serverless computing.**
 
 ## Overview
 
@@ -28,9 +28,9 @@
 
 ### Create a serverless function
 
-<p align="center"><img style="max-width:800px, max-height=200px" src="doc_images/sls_create.png" alt="sls create"></p>
+<p align="center"><img style="max-width:800px" src="doc_images/sls_create.png" alt="sls create"></p>
 
-<p align="center"><img style="max-width:800px" src="doc_images/sls_create_cli_status"></p>
+<p align="center"><img style="max-width:800px" src="doc_images/sls_create_cli_status.png"></p>
 
 ### Install serverless plugin
 Install a serverless plugin which helps bundling dependencies from a requirements.txt file. The serverless-python-requirements plugin allows you to even bundle non-pure-Python modules. 
@@ -101,18 +101,12 @@ Result:
 
 <p align="center"><img style="max-width:800px" src="doc_images/insomnia_header.png"></p>
 
-### Web page is hosted on S3 bucket to test the deployment.
+### Demo site [(Visit)](http://www.aijourney.com.s3-website.ap-south-1.amazonaws.com/)
 
-Select image and test yourself... first image might take time or might give timeout error due to COLD start setup where Lambda fucntion tries to downloads all the dependencies..
+Web page is hosted on S3 bucket to test the deployment. user can select image and check the calssification result 
+> NOTE: first image might take time or might give timeout error due to COLD start setup where Lambda fucntion tries to downloads all the dependencies..
 
-<p align="center"><img style="max-width:800px" src="http://www.aijourney.com.s3-website.ap-south-1.amazonaws.com/"></p>
-
-### Demo site
-
-Web page is hosted on S3 bucket to test the deployment. Kindly select image and test yourself... 
-NOTE: first image might take time or might give timeout error due to COLD start setup where Lambda fucntion tries to downloads all the dependencies..
-
-<p align="center"><img style="max-width:800px" src="http://www.aijourney.com.s3-website.ap-south-1.amazonaws.com/"></p>
+Web Link: http://www.aijourney.com.s3-website.ap-south-1.amazonaws.com/
 
  
 

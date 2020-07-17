@@ -7,9 +7,7 @@
 * All the AWS resocures such as API end point, Lambda functions, Cloud Formations, application packages on S3 and many mores resoucres are created automatically. Its very coll as it takes all the burden of server resource managment from the user.
 * Application is deploy as AWS Lambda function which fetch model from S3 bucket.
 
-**Source package for mobilenet_v2 application**[(Link)](mobilenetv2-pytorch-aws):
-
-Let's have quick summary step by step procedure to build and deploy AI applictaion oover AWS
+> Let's have quick summary step by step procedure to build and deploy AI applictaion oover AWS
 
 1. Pre-Requisite: 
     * Oracle VM virtual Box
@@ -30,7 +28,7 @@ Let's have quick summary step by step procedure to build and deploy AI applictai
 
 ### Create a serverless function
 
-<p align="center"><img style="max-width:800px" src="doc_images/sls_create.png" alt="sls create"></p>
+<p align="center"><img style="max-width:800px, max-height=200px" src="doc_images/sls_create.png" alt="sls create"></p>
 
 <p align="center"><img style="max-width:800px" src="doc_images/sls_create_cli_status"></p>
 

@@ -7,7 +7,7 @@
 * All the AWS resocures such as API end point, Lambda functions, Cloud Formations, application packages on S3 and many mores resoucres are created automatically. Its very coll as it takes all the burden of server resource managment from the user.
 * Application is deploy as AWS Lambda function which fetch model from S3 bucket.
 
-## Here is the quick summary of step by step procedure to build and deploy AI applictaion oover AWS
+## Here is the quick summary of step by step procedure to build and deploy AI applictaion over AWS
 
 1. Pre-Requisite: 
     * Oracle VM virtual Box
@@ -43,7 +43,7 @@ Install a serverless plugin which helps bundling dependencies from a requirement
 
 ### Deployment script
 Deployment Package on AWS Lambda cannot be greater than 250MB (Pytorch itself can be 470MB or more!). so manually create requirements.txt file and add a link to python wheel file (.whl) for Pytorch and Lambda will directly install it for us! 
-The requirements.txt should look like this. [(Link)](mobilenetv2-pytorch-aws/requirements.py)
+The requirements.txt should look like this. [(Link)](mobilenetv2-pytorch-aws/requirements.txt)
 
 <p align="center"><img style="max-width:800px" src="doc_images/requirements.png"></p>
 
@@ -58,7 +58,7 @@ This file shall define the entry handler function for Lambda. It contains applic
 3. Entry handler functions which will be invoke every time AWS Lanbda function is triggered.
 3. Processing of incoming image content and using model for image's classification
 
-### Update configurations in serverless.yml [(Link)](mobilenetv2-pytorch-aws/handler.py)
+### Update configurations in serverless.yml [(Link)](mobilenetv2-pytorch-aws/serverless.yml)
 Update this file for configuring AWS as cloud service provider. 
 
 <p align="center"><img style="max-width:800px" src="doc_images/serverless_yml.png"></p>

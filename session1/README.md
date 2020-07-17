@@ -85,7 +85,7 @@ It creates all the necessary AWS resources for running the application. Restful 
 
 > NOTE: We need to allow multipart/form-data content type for the HTTP request and hence visit AWS API gateway console and set "Binary Media Type" as "multipart/form-data"
 
-### Testing Deployment
+## Testing Deployment
 
 Insomnia API tool is used to test the deployment. Invoke API with following configurations:
 
@@ -102,13 +102,13 @@ Result:
 
 <p align="center"><img style="max-width:800px" src="doc_images/insomnia_header.png"></p>
 
-### Demo site [(Visit)](https://s3.ap-south-1.amazonaws.com/www.aijourney.com/s1_demo.html)
+## Demo site [(Visit)](https://s3.ap-south-1.amazonaws.com/www.aijourney.com/s1_demo.html)
 
 Web page is hosted on S3 bucket to test the deployment. user can select image and check the classification result 
 > NOTE: first image might take time for processing or might give timeout error, this is due to COLD start setup where Lambda function tries to downloads all the dependencies..
 
-Web Link: https://s3.ap-south-1.amazonaws.com/www.aijourney.com/s1_demo.html
+**Web Link:** https://s3.ap-south-1.amazonaws.com/www.aijourney.com/s1_demo.html
 
-<p align="center"><img src="doc_images/s1_web_page.png" href="https://s3.ap-south-1.amazonaws.com/www.aijourney.com/s1_demo.html"></p>
+<p align="center"><img img style="max-width:400px" src="doc_images/s1_web_page.png" href="https://s3.ap-south-1.amazonaws.com/www.aijourney.com/s1_demo.html"></p>
 
 

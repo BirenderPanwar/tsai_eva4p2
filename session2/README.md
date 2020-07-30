@@ -17,11 +17,11 @@
 <p align="center"><img style="max-width:800px" src="doc_images/dataset_samples.jpg"></p> 
 
 
-## Exploratory Data Analysis and Data Handling
+## Exploratory Data Analysis and Data Handling[(Link)](eda_find_duplicates.ipynb)
 
 For Detailed work on EDA refer notebook eda_find_duplicates.ipynb[(Link)](eda_find_duplicates.ipynb)
-This notebook captured duplication and errornous information against each images file. and these information is 
-finally dumped into eda_duplicate_list.csv[(Link)](eda_duplicate_list.csv)
+This notebook captured duplication and errornous information against each image file and these information is 
+finally dumped into **eda_duplicate_list.csv[(Link)](eda_duplicate_list.csv)**
 
 The existing dataset comes with various challenges:
 1. Dataset contains few Non-Media files(.txt, .ipynb) and few erronous file of type .GIF, .JFIF and .svg

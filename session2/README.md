@@ -79,10 +79,14 @@ This section required to be updated
 
 ## Model Building Using Transfer Learning (MobileNet_V2)
 
+### Model Architecture
+
+<p align="center"><img style="max-width:800px" src="doc_images/model_arch.png"></p> 
+
 ### Attempt-1: S2_main_attempt1.ipynb[(Link)](S2_main_attempt1.ipynb)
 
 In this expereiment MobileNet_V2 network is used as an feature extracter and all the layer are Freezed and made non-trainable.
-We don not need last classifier layer and it is replaced by own fully connected dense layer for classifying four categogy of images.
+We don't not need last classifier layer and it is replaced by own fully connected dense layer for classifying four categogy of images.
 
 ```
 # adding own FC and classification layer.. these layer will be trained 
@@ -95,7 +99,7 @@ model.classifier = nn.Sequential(nn.Dropout(0.2),
                                  nn.LogSoftmax(dim=1))
 ```
 
-## Test Results:
+### Test Results:
 
 Over all Test Accuracy: 87.75% at Epoch: 29
 
@@ -111,7 +115,7 @@ Accuracy and Loss Graph:
 In this expereimen, MobileNet_V2 network is fine-tuned where the last 3 blocks (features:16, features:17 and features:18) are un-freezed so that their weights 
 get learned and updated in each epoch during training. and the last classifier layer is replaced by own fully connected dense layer for classifying four categogy of images.
 
-## Test Results:
+### Test Results:
 
 Over all Test Accuracy: 88.93% at Epoch: 8
 
@@ -123,10 +127,10 @@ Accuracy and Loss Graph:
 
 ## Sample of Misclassification Results on Test Data
 
-**Example of Small QuadeCopters which are misclassified by the model:**
+**Example of Small QuadCopters which are misclassified by the model:**
 <p align="center"><img style="max-width:800px" src="doc_images/Small QuadCopters_misclassified_images.jpg"></p> 
 
-**Example of Large QuadeCopters which are misclassified by the model:**
+**Example of Large QuadCopters which are misclassified by the model:**
 <p align="center"><img style="max-width:800px" src="doc_images/Large QuadCopters_misclassified_images.jpg"></p> 
 
 **Example of Winged Drones which are misclassified by the model:**

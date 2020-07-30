@@ -5,10 +5,10 @@
 ## Dataset Creation
 1. Total of 21805 images are collected through various sources (Google images, Bing, Flickr,  yahoo, DuckDuckGo)
 2. Images are categorized under four category as:
-   1. Large QuadCopters
-   2. Small QuadCopters
-   3. Winged Drone
-   4. Flying Birds
+   1. Large QuadCopters (LQC)
+   2. Small QuadCopters (SQC)
+   3. Winged Drone      (WD)
+   4. Flying Birds      (FB)
 
 **Class distribution**
 <p align="center"><img style="max-width:800px" src="doc_images/ds_count_original.png"></p>

@@ -1,9 +1,9 @@
 ## Session-2: 
-* **Creating dataset for different type of Dronesna dflying birds**
-* **Build Neural Netwrok for classifying images using Transfer-Learning using Pre-Trained MobileNet_V2 Network**
+* **Creating dataset for different type of Drones and flying birds**
+* **Build Neural Network for classifying images using Transfer-Learning for Pre-Trained MobileNet_V2 Network**
 
 ## Dataset Creation
-1. Total of 21805 images are collected throuhg various sources (Google images, Bing, Flickr,  yahoo, DuckDuckGo)
+1. Total of 21805 images are collected through various sources (Google images, Bing, Flickr,  yahoo, DuckDuckGo)
 2. Images are categorized under four category as:
    1. Large QuadCopters
    2. Small QuadCopters
@@ -12,6 +12,9 @@
 
 **Class distribution**
 <p align="center"><img style="max-width:800px" src="doc_images/ds_count_original.png"></p>
+
+**Sample Dataset**
+<p align="center"><img style="max-width:800px" src="doc_images/dataset_samples.jpg"></p> 
 
 
 ## Exploratory Data Analysis and Data Handling
@@ -32,7 +35,7 @@ Theses images are removed from the dataset
 
 ### Handling of Duplicate Images Within Class
 
-To identify the duplicate images, md5 algorithm(using hashlib package) is used to calculate the hash for each file and hasg key is compared to identify the duplicate images.
+To identify the duplicate images, md5 algorithm(using hashlib package) is used to calculate the hash for each file and hash key is compared to identify the duplicate images.
 All duplicate images are removed from the dataset.
 
 Total of 2258 duplicate images are found in the dataset.
@@ -41,7 +44,7 @@ Distribution of duplicates images are as below:
 <p align="center"><img style="max-width:800px" src="doc_images/ds_count_duplicates_within_class.png"></p>
 
 ### Handling of Duplicate Images Across Classes
-Few images are found to be present in multiple classes
+It is also observed that same images are found to be present in multiple classes
 
 Total of 104 duplicate images are found across classes in the dataset. These duplicate images are deleted from the dataset
 
@@ -52,11 +55,11 @@ Here is the summary of duplicate images across classes:
 
 Many images are found to be wrongly labels. Below are the few samples of misclassified images
 
-Small QuadCopters: Below images are found in Small QuadCopters but these images are actually belongs to Large QuadCopter class
+**Small QuadCopters:** Below images are found in Small QuadCopters but these images are actually belongs to Large QuadCopter class
 <p align="center"><img style="max-width:800px" src="doc_images/ds_misclassified_small_copters.png"></p>
 
-Winged Drones: Below images are found in Winged Drone but these images are actually belongs to either Small or Large QuadCopter class
-<p align="center"><img style="max-width:800px" src="doc_images/Winged Drones.png"></p> 
+**Winged Drones:** Below images are found in Winged Drone but these images are actually belongs to either Small or Large QuadCopter class
+<p align="center"><img style="max-width:800px" src="doc_images/ds_misclassified_winged_drone.png"></p> 
 
 These misclassified images are retained in the dataset.
 
@@ -87,7 +90,7 @@ Class based accuracy:
 <p align="center"><img style="max-width:800px" src="doc_images/attempt1_class_based_acc.png"></p> 
 
 Accuracy and Loss Graph:
-<p align="center"><img style="max-width:800px" src="doc_images/attempt1_acc_graph.png"></p> 
+<p align="center"><img style="max-width:800px" src="doc_images/attempt1_model_history.png"></p> 
 
 
 ### Attempt-2: S2_main_attempt2.ipynb[(Link)](S2_main_attempt2.ipynb)
@@ -103,15 +106,15 @@ Class based accuracy:
 <p align="center"><img style="max-width:800px" src="doc_images/attempt2_class_based_acc.png"></p> 
 
 Accuracy and Loss Graph:
-<p align="center"><img style="max-width:800px" src="doc_images/attempt2_acc_graph.png"></p> 
+<p align="center"><img style="max-width:800px" src="doc_images/attempt2_model_history.png"></p> 
 
 ## Sample of Misclassification Results on Test Data
 
 **Example of Small QuadeCopters which are misclassified by the model:**
-<p align="center"><img style="max-width:800px" src="doc_images/Small QuadeCopters_misclassified_images.jpg"></p> 
+<p align="center"><img style="max-width:800px" src="doc_images/Small QuadCopters_misclassified_images.jpg"></p> 
 
 **Example of Large QuadeCopters which are misclassified by the model:**
-<p align="center"><img style="max-width:800px" src="doc_images/Large QuadeCopters_misclassified_images.jpg"></p> 
+<p align="center"><img style="max-width:800px" src="doc_images/Large QuadCopters_misclassified_images.jpg"></p> 
 
 **Example of Winged Drones which are misclassified by the model:**
 <p align="center"><img style="max-width:800px" src="doc_images/Winged Drones_misclassified_images.jpg"></p> 

@@ -84,6 +84,17 @@ This section required to be updated
 In this expereiment MobileNet_V2 network is used as an feature extracter and all the layer are Freezed and made non-trainable.
 We don not need last classifier layer and it is replaced by own fully connected dense layer for classifying four categogy of images.
 
+```
+# adding own FC and classification layer.. these layer will be trained 
+model.classifier = nn.Sequential(nn.Dropout(0.2),
+                                 nn.Linear(1280, 512),
+                                 nn.ReLU(),
+                                 nn.Dropout(0.2),
+                                 nn.Linear(512, 1024),
+                                 nn.Linear(1024, 4),
+                                 nn.LogSoftmax(dim=1))
+```
+
 ## Test Results:
 
 Over all Test Accuracy: 87.75% at Epoch: 29

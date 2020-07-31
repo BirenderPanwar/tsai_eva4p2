@@ -1,14 +1,14 @@
-## Explanation for Custome Model Designed to Handle Multiple Resolution Images and Using Pretrained Network
+## Explanation for Custom Model Designed to Handle Multiple Resolution Images and Using Pretrained Network
 
 ## Handling of Multi-Resolution Images
 
 Below diagram depicts various image resolutions in dataset. As per distribution majority of image's dimension are above 224 and below 2000..
 
-<p align="center"><img style="max-width:800px" src="././doc_images/image_size_histogram.png"></p> 
+<p align="center"><img style="max-width:800px" src="../doc_images/image_size_histogram.png"></p> 
 
 
 Very few images fall under 224X224 resolutions. There are around 1051 images under this category.  
-<p align="center"><img style="max-width:800px" src="././doc_images/image_size_histogram_size224_less.png"></p> 
+<p align="center"><img style="max-width:800px" src="../doc_images/image_size_histogram_size224_less.png"></p> 
 
 As per above image size distribution, we need to scale down major chunk of images to 224X224 as this is the standard image size expected by MobiltNet_V2 network.
 
@@ -19,9 +19,9 @@ As per above image size distribution, we need to scale down major chunk of image
 3. ResizingConvNetwork is designed which define the respective Convolution Network for each Bin. Apprach is to train this convolution network to decide how to scale the images.
 4. ResizingConvNetwork get trained, update its weights while training and resize the images of respective bin to 224X224 which is finally fed to the Pre-Trained Mobile_V2 Network
 
-Here is the architechture of entire model including ResizingConvNetwork and Pre-Trained Network. The Model is defined in DroneNetwork.py [(Link)](././models/DroneNetwork.py)
+Here is the architechture of entire model including ResizingConvNetwork and Pre-Trained Network. The Model is defined in DroneNetwork.py [(Link)](../models/DroneNetwork.py)
 
-<p align="center"><img style="max-width:800px" src="././doc_images/model_arch_resizing.png"></p> 
+<p align="center"><img style="max-width:800px" src="../doc_images/model_arch_resizing.png"></p> 
 
 
 

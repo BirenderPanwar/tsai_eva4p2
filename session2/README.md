@@ -117,6 +117,11 @@ model.classifier = nn.Sequential(nn.Dropout(0.2),
                                  nn.LogSoftmax(dim=1))
 ```
 
+**NOTE:** 
+Model performance is not good here due to batch size. Currently i am facing with an issue that PyTorch Dataloader does not support stacking of images with multiple dimensions and hence i am using batch_size of 1 at this moment.
+I would like to invest further effort on investigating this issue and would like to refine this approch with higher batch_size.
+Hope i will get a breakthrough to improve the network efficiency on this architecture. 
+
 ### Test Results:
 
 Over all Test Accuracy: 87.75% at Epoch: 29

@@ -82,7 +82,7 @@ Below diagram depicts various image resolutions in dataset. As per distribution 
 Very few images fall under 224X224 resolutions. There are around 1051 images under this category.  
 <p align="center"><img style="max-width:800px" src="doc_images/image_size_histogram_size224_less.png"></p> 
 
-As per above image size distribution, we need to scale down major chunk of images to 224X224 as this is the stand iamges size expected by MobiltNet_V2 network.
+As per above image size distribution, we need to scale down major chunk of images to 224X224 as this is the standard image size expected by MobiltNet_V2 network.
 
 ## Stategy to Handle Multiple Resolution Images
 

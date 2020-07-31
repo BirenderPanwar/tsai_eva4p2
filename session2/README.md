@@ -167,10 +167,10 @@ Accuracy and Loss Graph:
 ## Sample of Misclassification Results on Test Data (Attempt-3)
 
 **Example of Small QuadCopters which are misclassified by the model:**
-<p align="center"><img style="max-width:800px" src="doc_images/attempt3_scq_misclassified_images.jpg"></p> 
+<p align="center"><img style="max-width:800px" src="doc_images/attempt3_sqc_misclassified_images.jpg"></p> 
 
 **Example of Large QuadCopters which are misclassified by the model:**
-<p align="center"><img style="max-width:800px" src="doc_images/attempt3_lcq_misclassified_images.jpg"></p> 
+<p align="center"><img style="max-width:800px" src="doc_images/attempt3_lqc_misclassified_images.jpg"></p> 
 
 **Example of Winged Drones which are misclassified by the model:**
 <p align="center"><img style="max-width:800px" src="doc_images/attempt3_wd_misclassified_images.jpg"></p> 

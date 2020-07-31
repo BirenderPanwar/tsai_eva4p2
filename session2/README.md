@@ -74,19 +74,37 @@ After removing non-media files, errornous images and all duplicate images from t
 
 ### Handling of Multi-Resolution Images
 
-This section required to be updated
+Below diagram depicts various image resolutions in dataset. As per distribution majority of image's dimension are above 224 and below 2000..
+
+<p align="center"><img style="max-width:800px" src="doc_images/image_size_histogram.png"></p> 
+
+
+Very few images fall under 224X224 resolutions. There are around 1051 images under this category.  
+<p align="center"><img style="max-width:800px" src="doc_images/image_size_histogram_size224_less.png"></p> 
+
+As per above image size distribution, we need to scale down major chunk of images to 224X224 as this is the stand iamges size expected by MobiltNet_V2 network.
+
+## Stategy to Handle Multiple Resolution Images
+
+1. The entire dataset is resize into 7 Bins of sizes: 224X224, 448X448, 672X672, 896X896, 1354X1354, 1792X1792, 3584X3584. 
+2. Bin category is decided based on closest dimensions the Images belongs to. For Example image size of say 800X800 will fall under 896X896 bin
+3. ResizingConvNetwork is designed which define the respective Convolution Network for each Bin. Apprach is to train this convolution network to decide how to scale the images.
+4. ResizingConvNetwork get trained, update its weights while training and resize the images of respective bin to 224X224 which is finally fed to the Pre-Trained Mobile_V2 Network
+
+Here is the architechture of entire model including ResizingConvNetwork and Pre-Trained Network. The Model is defined in DroneNetwork.py [(Link)](models/DroneNetwork.py)
+
+<p align="center"><img style="max-width:800px" src="doc_images/model_arch_resizing.png"></p> 
 
 
 ## Model Building Using Transfer Learning (MobileNet_V2)
 
 ### Model Architecture
 
-<p align="center"><img style="max-width:800px" src="doc_images/model_arch.png"></p> 
+### Attempt-3: S2_main_attempt3_resizing.ipynb[(Link)](S2_main_attempt3_resizing.ipynb)
 
-### Attempt-1: S2_main_attempt1.ipynb[(Link)](S2_main_attempt1.ipynb)
-
-In this expereiment MobileNet_V2 network is used as an feature extracter and all the layer are Freezed and made non-trainable.
-We don't not need last classifier layer and it is replaced by own fully connected dense layer for classifying four categogy of images.
+1. As explained above, in this experiment ResizingConvNetwork is developed for resizing of images and fed to the Pre-Trained network.
+2. MobileNet_V2 network is fine-tuned where the last 3 blocks (features:16, features:17 and features:18) are un-freezed so that their weights 
+get learned and updated in each epoch during training. and the last classifier layer is replaced by own fully connected dense layer for classifying four categogy of images.
 
 ```
 # adding own FC and classification layer.. these layer will be trained 
@@ -98,6 +116,26 @@ model.classifier = nn.Sequential(nn.Dropout(0.2),
                                  nn.Linear(1024, 4),
                                  nn.LogSoftmax(dim=1))
 ```
+
+### Test Results:
+
+Over all Test Accuracy: 87.75% at Epoch: 29
+
+Class based accuracy:
+<p align="center"><img style="max-width:800px" src="doc_images/attempt3_class_based_acc.png"></p> 
+
+Accuracy and Loss Graph:
+<p align="center"><img style="max-width:800px" src="doc_images/attempt3_model_history.png"></p> 
+
+
+### Additional Experiments
+
+<p align="center"><img style="max-width:800px" src="doc_images/model_arch.png"></p> 
+
+### Attempt-1: S2_main_attempt1.ipynb[(Link)](S2_main_attempt1.ipynb)
+
+In this expereiment MobileNet_V2 network is used as an feature extracter and all the layer are Freezed and made non-trainable.
+We don't not need last classifier layer and it is replaced by own fully connected dense layer for classifying four categogy of images.
 
 ### Test Results:
 
@@ -125,19 +163,20 @@ Class based accuracy:
 Accuracy and Loss Graph:
 <p align="center"><img style="max-width:800px" src="doc_images/attempt2_model_history.png"></p> 
 
-## Sample of Misclassification Results on Test Data
+
+## Sample of Misclassification Results on Test Data (Attempt-3)
 
 **Example of Small QuadCopters which are misclassified by the model:**
-<p align="center"><img style="max-width:800px" src="doc_images/Small QuadCopters_misclassified_images.jpg"></p> 
+<p align="center"><img style="max-width:800px" src="doc_images/attempt3_scq_misclassified_images.jpg"></p> 
 
 **Example of Large QuadCopters which are misclassified by the model:**
-<p align="center"><img style="max-width:800px" src="doc_images/Large QuadCopters_misclassified_images.jpg"></p> 
+<p align="center"><img style="max-width:800px" src="doc_images/attempt3_lcq_misclassified_images.jpg"></p> 
 
 **Example of Winged Drones which are misclassified by the model:**
-<p align="center"><img style="max-width:800px" src="doc_images/Winged Drones_misclassified_images.jpg"></p> 
+<p align="center"><img style="max-width:800px" src="doc_images/attempt3_wd_misclassified_images.jpg"></p> 
 
 **Example of Flying Birds Drones which are misclassified by the model:**
-<p align="center"><img style="max-width:800px" src="doc_images/Flying Birds_misclassified_images.jpg"></p> 
+<p align="center"><img style="max-width:800px" src="doc_images/attempt3_fb_misclassified_images.jpg"></p> 
 
 
 

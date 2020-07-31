@@ -122,10 +122,10 @@ model.classifier = nn.Sequential(nn.Dropout(0.2),
 Over all Test Accuracy: 87.75% at Epoch: 29
 
 Class based accuracy:
-<p align="center"><img style="max-width:800px" src="doc_images/attempt3_class_based_acc.png"></p> 
+<p align="center"><img style="max-width:800px" src="doc_images/attempt3/class_based_acc.png"></p> 
 
 Accuracy and Loss Graph:
-<p align="center"><img style="max-width:800px" src="doc_images/attempt3_model_history.png"></p> 
+<p align="center"><img style="max-width:800px" src="doc_images/attempt3/model_history.png"></p> 
 
 
 ### Additional Experiments
@@ -142,10 +142,10 @@ We don't not need last classifier layer and it is replaced by own fully connecte
 Over all Test Accuracy: 87.75% at Epoch: 29
 
 Class based accuracy:
-<p align="center"><img style="max-width:800px" src="doc_images/attempt1_class_based_acc.png"></p> 
+<p align="center"><img style="max-width:800px" src="doc_images/attempt1/class_based_acc.png"></p> 
 
 Accuracy and Loss Graph:
-<p align="center"><img style="max-width:800px" src="doc_images/attempt1_model_history.png"></p> 
+<p align="center"><img style="max-width:800px" src="doc_images/attempt1/model_history.png"></p> 
 
 
 ### Attempt-2: S2_main_attempt2.ipynb[(Link)](S2_main_attempt2.ipynb)
@@ -158,25 +158,25 @@ get learned and updated in each epoch during training. and the last classifier l
 Over all Test Accuracy: 88.93% at Epoch: 8
 
 Class based accuracy:
-<p align="center"><img style="max-width:800px" src="doc_images/attempt2_class_based_acc.png"></p> 
+<p align="center"><img style="max-width:800px" src="doc_images/attempt2/class_based_acc.png"></p> 
 
 Accuracy and Loss Graph:
-<p align="center"><img style="max-width:800px" src="doc_images/attempt2_model_history.png"></p> 
+<p align="center"><img style="max-width:800px" src="doc_images/attempt2/model_history.png"></p> 
 
 
-## Sample of Misclassification Results on Test Data (Attempt-3)
+## Sample of Misclassification Results on Test Data (Attempt-2)
 
 **Example of Small QuadCopters which are misclassified by the model:**
-<p align="center"><img style="max-width:800px" src="doc_images/attempt3_sqc_misclassified_images.jpg"></p> 
+<p align="center"><img style="max-width:800px" src="doc_images/attempt2/Small QuadCopters_misclassified_images.jpg"></p> 
 
 **Example of Large QuadCopters which are misclassified by the model:**
-<p align="center"><img style="max-width:800px" src="doc_images/attempt3_lqc_misclassified_images.jpg"></p> 
+<p align="center"><img style="max-width:800px" src="doc_images/attempt2/Large QuadCopters_misclassified_images.jpg"></p> 
 
 **Example of Winged Drones which are misclassified by the model:**
-<p align="center"><img style="max-width:800px" src="doc_images/attempt3_wd_misclassified_images.jpg"></p> 
+<p align="center"><img style="max-width:800px" src="doc_images/attempt2/Winged Drones_misclassified_images.jpg"></p> 
 
 **Example of Flying Birds Drones which are misclassified by the model:**
-<p align="center"><img style="max-width:800px" src="doc_images/attempt3_fb_misclassified_images.jpg"></p> 
+<p align="center"><img style="max-width:800px" src="doc_images/attempt2/Flying Birds_misclassified_images.jpg"></p> 
 
 
 

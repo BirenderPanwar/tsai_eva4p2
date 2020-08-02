@@ -73,9 +73,9 @@ After removing non-media files, errornous images and all duplicate images from t
 
 ### Image Augmentation
 
-Following Image augmentaions are applied to generalized the model: Brightness, Contrast, RandomRotation, horizontalflit and Cutout
+Following Image augmentaions are applied to generalized the model: Brightness, Contrast, RandomRotation, HorizontalFlip and Cutout
 
-<p align="center"><img style="max-width:800px" src="doc_images/image_augmentation.png"></p> 
+<p align="center"><img style="max-width:800px" src="doc_images/img_augmentation.png"></p> 
 
 ### Handling of Multi-Resolution Images
 

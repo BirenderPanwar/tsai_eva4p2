@@ -144,7 +144,8 @@ class ModelUtils():
           state = {'epoch': epoch + 1, 'state_dict': self.model.state_dict(), 'optimizer': self.optimizer.state_dict(), 'criterion': self.criterion, }
           torch.save(state, filename)
           # Save entire model itself
-          torch.save(self.model, f'{self.saved_model_dir}/model_ep{epoch}_testloss_{loss:0.9f}.pt')
+          #torch.save(self.model, f'{self.saved_model_dir}/model_ep{epoch}_testloss_{loss:0.9f}.pt')
+          torch.save(self.model, f'{self.saved_model_dir}/bestmodel.pt')
 
 '''
 common functions

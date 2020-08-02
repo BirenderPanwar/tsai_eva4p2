@@ -126,7 +126,7 @@ Hope i will get a breakthrough to improve the network efficiency on this archite
 
 <p align="center"><img style="max-width:800px" src="doc_images/model_arch.png"></p> 
 
-### **Attempt-2:** S2_main_attempt2.ipynb[(Link)](S2_main_attempt2.ipynb)
+### Attempt-2: S2_main_attempt2.ipynb[(Link)](S2_main_attempt2.ipynb)
 
 In this expereimen, MobileNet_V2 network is fine-tuned where the last 3 blocks (features:16, features:17 and features:18) are un-freezed so that their weights 
 get learned and updated in each epoch during training. and the last classifier layer is replaced by own fully connected dense layer for classifying four categogy of images.
@@ -141,7 +141,7 @@ Class based accuracy:
 Accuracy and Loss Graph:
 <p align="center"><img style="max-width:800px" src="doc_images/attempt2/model_history.png"></p> 
 
-### **Attempt-1:** S2_main_attempt1.ipynb[(Link)](S2_main_attempt1.ipynb)
+### Attempt-1: S2_main_attempt1.ipynb[(Link)](S2_main_attempt1.ipynb)
 
 In this expereiment MobileNet_V2 network is used as an feature extracter and all the layer are Freezed and made non-trainable.
 We don't not need last classifier layer and it is replaced by own fully connected dense layer for classifying four categogy of images.

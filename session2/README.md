@@ -71,6 +71,11 @@ After removing non-media files, errornous images and all duplicate images from t
 
 <p align="center"><img style="max-width:800px" src="doc_images/ds_count_final.png"></p> 
 
+### Image Augmentation
+
+Following Image augmentaions are applied to generalized the model: Brightness, Contrast, RandomRotation, horizontalflit and Cutout
+
+<p align="center"><img style="max-width:800px" src="doc_images/image_augmentation.png"></p> 
 
 ### Handling of Multi-Resolution Images
 

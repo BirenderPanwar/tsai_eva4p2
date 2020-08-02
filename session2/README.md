@@ -122,45 +122,18 @@ Model performance is not good here due to batch size. Currently i am facing with
 I would like to invest further effort on investigating this issue and would like to refine this approch with higher batch_size.
 Hope i will get a breakthrough to improve the network efficiency on this architecture. 
 
-### Test Results:
-
-Over all Test Accuracy: 87.75% at Epoch: 29
-
-Class based accuracy:
-<p align="center"><img style="max-width:800px" src="doc_images/attempt3/class_based_acc.png"></p> 
-
-Accuracy and Loss Graph:
-<p align="center"><img style="max-width:800px" src="doc_images/attempt3/model_history.png"></p> 
-
-
 ### Additional Experiments
 
 <p align="center"><img style="max-width:800px" src="doc_images/model_arch.png"></p> 
 
-### Attempt-1: S2_main_attempt1.ipynb[(Link)](S2_main_attempt1.ipynb)
-
-In this expereiment MobileNet_V2 network is used as an feature extracter and all the layer are Freezed and made non-trainable.
-We don't not need last classifier layer and it is replaced by own fully connected dense layer for classifying four categogy of images.
-
-### Test Results:
-
-Over all Test Accuracy: 87.75% at Epoch: 29
-
-Class based accuracy:
-<p align="center"><img style="max-width:800px" src="doc_images/attempt1/class_based_acc.png"></p> 
-
-Accuracy and Loss Graph:
-<p align="center"><img style="max-width:800px" src="doc_images/attempt1/model_history.png"></p> 
-
-
-### Attempt-2: S2_main_attempt2.ipynb[(Link)](S2_main_attempt2.ipynb)
+### **Attempt-2:** S2_main_attempt2.ipynb[(Link)](S2_main_attempt2.ipynb)
 
 In this expereimen, MobileNet_V2 network is fine-tuned where the last 3 blocks (features:16, features:17 and features:18) are un-freezed so that their weights 
 get learned and updated in each epoch during training. and the last classifier layer is replaced by own fully connected dense layer for classifying four categogy of images.
 
 ### Test Results:
 
-Over all Test Accuracy: 88.93% at Epoch: 8
+Over all Test Accuracy: 89.82% at Epoch: 18
 
 Class based accuracy:
 <p align="center"><img style="max-width:800px" src="doc_images/attempt2/class_based_acc.png"></p> 
@@ -168,6 +141,14 @@ Class based accuracy:
 Accuracy and Loss Graph:
 <p align="center"><img style="max-width:800px" src="doc_images/attempt2/model_history.png"></p> 
 
+### **Attempt-1:** S2_main_attempt1.ipynb[(Link)](S2_main_attempt1.ipynb)
+
+In this expereiment MobileNet_V2 network is used as an feature extracter and all the layer are Freezed and made non-trainable.
+We don't not need last classifier layer and it is replaced by own fully connected dense layer for classifying four categogy of images.
+
+### Test Results:
+
+Over all Test Accuracy: 87.75% at Epoch: 29
 
 ## Sample of Misclassification Results on Test Data (Attempt-2)
 

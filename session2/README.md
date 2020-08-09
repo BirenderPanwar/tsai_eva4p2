@@ -2,7 +2,7 @@
 * **Creating dataset for different type of Drones and flying birds**
 * **Build Neural Network for classifying images using Transfer-Learning for Pre-Trained MobileNet_V2 Network**
 * **Using Serverless framework, model is deployed onto AWS**
-* **Web page application is hosted on AWS S3 bucket **
+* **Web page application is hosted on AWS S3 bucket**
 
 ## Dataset Creation
 1. Total of 21805 images are collected through various sources (Google images, Bing, Flickr,  yahoo, DuckDuckGo)

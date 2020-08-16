@@ -4,7 +4,18 @@
 * **Using Serverless framework, Lambda function for the model is deployed onto AWS**
 * **Web page application is hosted on AWS S3 bucket**
 
-## Package Structure
+## Web Applications
+
+All the web applications are hosted on AWS S3 bucket
+
+### Web App for Image Classification) [(Visit)](https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s1_demo.html)
+### Web App for Drone Classification using MobileNet_V2 pre-trained model [(Visit)](https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s2_demo.html)
+### Web App for Face Alignment [(Visit)](https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s3_face_align.html)
+### Web App for Face Swap [(Visit)](https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s3_face_swap.html)
+
+## WORK SUMMARY
+
+### Package Structure
 
 <p align="center"><img style="max-width:800px" src="doc_images/folder_structure.png"></p>
 
@@ -17,6 +28,10 @@
 Notebook: S3_FaceAlignment_5PointModel.ipynb [(Link)](notebooks/S3_FaceAlignment_5PointModel.ipynb)
 
 AWS Deployment: [(Link)](aws_deployment/s3-face-align-aws)
+
+Result of test images with face alignment on web application
+
+<p align="center"><img style="max-width:800px" src="doc_images/face_align_result.png"></p>
 
 
 ## Face Swap
@@ -31,7 +46,16 @@ Notebook: S3_FaceSwap.ipynb [(Link)](notebooks/S3_FaceSwap.ipynb)
 
 AWS Deployment: [(Link)](aws_deployment/s3-face-swap-aws)
 
-### API Request Message
+Result of test images with face swap on web application
+
+<p align="center"><img style="max-width:800px" src="doc_images/face_align_result.png"></p>
+
+**API Request Message**
+Images are encoded into base64 format and send as string on JSON message.
+* METHOD: POST
+* Content-Type: application/json
+* Json message body containing base64 encoded data for two image files
+
 ```
 # img1_base64 and img1_base64: this contains image data in base64 encoded format
 
@@ -41,7 +65,7 @@ AWS Deployment: [(Link)](aws_deployment/s3-face-swap-aws)
 }
 ```
 
-### API Response Message
+**API Response Message**
 ```
 # Function to convert numpy image data into base64 encoded format for web ui
 def img_to_base64(img):
@@ -67,11 +91,21 @@ im_base64 = img_to_base64(swapped_face)
 
 File: test_handler.py [(Link)](aws_deployment/s3-face-align-aws/test/test_handler.py)
 
-```
-# im1_base64data : base64 encoded data of test image1 
-# im2_base64data : base64 encoded data of test image2 
+test function is developed which create and pass input message as expected by entry function main_handler in handler.py 
 
-def test_handler(im1_str, im2_str):
+```
+def test_handler(filename1, filename2):
+
+    # read and convert image into base64
+    img1 = Image.open(filename1)
+    img1 = np.array(img1)
+    im1_str = img_to_base64(img1).split(',')[1]
+
+    # read and convert image into base64
+    img2 = Image.open(filename2)
+    img2 = np.array(img2)
+    im2_str = img_to_base64(img2).split(',')[1]
+
     body = json.dumps({"img1": im1_str, "img2": im2_str})
     resp = main_handler({
         'headers': {'content-type': 'application/json'},
@@ -79,27 +113,22 @@ def test_handler(im1_str, im2_str):
     }, '')
     resp_body = json.loads(resp['body'])
     print(resp['statusCode'])
-    #print(resp_body)
-    #assert resp_body['something'] == 208
-
+    print(resp_body)
+    assert resp['statusCode'] == 200
 
 if __name__ == '__main__':
     print("Running test..")
-    test_handler(im1_base64data, im2_base64data)
+    test_handler(FILE1_PATH, FILE2_PATH)
 ```
+## Face Aligment Web Application
 
-## Web App for Image Classification (RESNET Model) [(Visit)](https://s3.ap-south-1.amazonaws.com/www.aijourney.com/s1_demo.html)
-## Web App for Drone Classification using MobileNet_V2 pre-trained model [(Visit)](https://s3.ap-south-1.amazonaws.com/www.aijourney.com/s2_demo.html)
-## Web App for Face Alignment [(Visit)](https://s3.ap-south-1.amazonaws.com/www.aijourney.com/s3_face_align.html)
-## Web App for Face Swap [(Visit)](https://s3.ap-south-1.amazonaws.com/www.aijourney.com/s3_face_swap.html)
-
-
-**Face Align Web Link:** https://s3.ap-south-1.amazonaws.com/www.aijourney.com/s3_face_align.html
+**Face Align Web Link:** https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s3_face_align.html
 
 <p align="center"><img img style="max-width:400px" src="doc_images/face_align_app.png"></p>
 
 
-**Face Swap Web Link:** https://s3.ap-south-1.amazonaws.com/www.aijourney.com/s3_face_swap.html
+## Face Swap Web Application
+**Face Swap Web Link:** https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s3_face_swap.html
 
 <p align="center"><img img style="max-width:400px" src="doc_images/face_swap_app.png"></p>
 

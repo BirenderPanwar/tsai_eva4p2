@@ -21,10 +21,10 @@ All the web applications are hosted on AWS S3 bucket
 4. ### Face Swap [(Visit)](https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s3_face_swap.html)
    **Face Swap Web Link:** https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s3_face_swap.html
 
-**NOTE**
-1. When application is not used for long time(30 mins and more), then on first time API hit, AWS Lambda try to fetch the application package from S3 bucket and perfom initialization.
-2. This process is time comsuming and hence API gets timeout during COLD START. 
-3. Retry mechanism is implemented and app retry the request for max 4 times on timeout. 
+>NOTE
+> 1. When application is not used for long time(30 mins and more), then on first time API hit, AWS Lambda try to fetch the application package from S3 bucket and perfom initialization.
+> 2. This process is time comsuming and hence API gets timeout during COLD START. 
+> 3. Retry mechanism is implemented and app retry the request for max 4 times on timeout. 
 
 ## Work Summary
 

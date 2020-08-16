@@ -9,18 +9,22 @@
 
 All the web applications are hosted on AWS S3 bucket
 
-1. ### Web App for Image Classification) [(Visit)](https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s1_demo.html)
+1. ### Image Classification) [(Visit)](https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s1_demo.html)
    **Image Classification Web Link:** https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s1_demo.html
 
-2. ### Web App for Drone Classification using MobileNet_V2 pre-trained model [(Visit)](https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s2_demo.html)
-**Drone Classification Web Link:** https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s2_demo.html
+2. ### Drone Classification using MobileNet_V2 pre-trained model [(Visit)](https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s2_demo.html)
+   **Drone Classification Web Link:** https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s2_demo.html
 
-3. ### Web App for Face Alignment [(Visit)](https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s3_face_align.html)
-**Face Align Web Link:** https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s3_face_align.html
+3. ### Face Alignment [(Visit)](https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s3_face_align.html)
+   **Face Align Web Link:** https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s3_face_align.html
 
-4. ### Web App for Face Swap [(Visit)](https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s3_face_swap.html)
-**Face Swap Web Link:** https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s3_face_swap.html
+4. ### Face Swap [(Visit)](https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s3_face_swap.html)
+   **Face Swap Web Link:** https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s3_face_swap.html
 
+**NOTE**
+1. When application is not used for long time(30 mins and more), then on first time API hit, AWS Lambda try to fetch the application package from S3 bucket and perfom initialization.
+2. This process is time comsuming and hence API gets timeout during COLD START. 
+3. Retry mechanism is implemented and app retry the request for max 4 times on timeout. 
 
 ## Work Summary
 

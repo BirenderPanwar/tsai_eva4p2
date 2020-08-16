@@ -4,7 +4,7 @@
 * **Using Serverless framework, model is deployed onto AWS (Refer folder: s2-mobilenet-drone-aws)** [(Link)](s2-mobilenet-drone-aws)
 * **Web page application is hosted on AWS S3 bucket** [(Visit)](https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s2_demo.html)
 
-### Package Structure
+## Package Structure
 
 <p align="center"><img style="max-width:800px" src="doc_images/folder_structure.png"></p>
 

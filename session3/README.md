@@ -4,16 +4,25 @@
 * **Using Serverless framework, Lambda function for the model is deployed onto AWS**
 * **Web page application is hosted on AWS S3 bucket**
 
+
 ## Web Applications
 
 All the web applications are hosted on AWS S3 bucket
 
-### Web App for Image Classification) [(Visit)](https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s1_demo.html)
-### Web App for Drone Classification using MobileNet_V2 pre-trained model [(Visit)](https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s2_demo.html)
-### Web App for Face Alignment [(Visit)](https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s3_face_align.html)
-### Web App for Face Swap [(Visit)](https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s3_face_swap.html)
+1. ### Web App for Image Classification) [(Visit)](https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s1_demo.html)
+   **Image Classification Web Link:** https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s1_demo.html
 
-## WORK SUMMARY
+2. ### Web App for Drone Classification using MobileNet_V2 pre-trained model [(Visit)](https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s2_demo.html)
+**Drone Classification Web Link:** https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s2_demo.html
+
+3. ### Web App for Face Alignment [(Visit)](https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s3_face_align.html)
+**Face Align Web Link:** https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s3_face_align.html
+
+4. ### Web App for Face Swap [(Visit)](https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s3_face_swap.html)
+**Face Swap Web Link:** https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s3_face_swap.html
+
+
+## Work Summary
 
 ### Package Structure
 
@@ -22,7 +31,7 @@ All the web applications are hosted on AWS S3 bucket
 ## Face Alignment
 
 * Face Alignment using 5-Points Landmark detector by DLIB
-* In the new 5-point model, the landmark points consist of 2 points at the corners of the eye; for each eye and one point on the nose-tip
+* In the 5-point model, the landmark points consist of 2 points at the corners of the eye; for each eye and one point on the nose-tip
 * To perform Face Alignment, first detect 5 Points landmarks and compute the normalized image by using the similarity transform
 
 Notebook: S3_FaceAlignment_5PointModel.ipynb [(Link)](notebooks/S3_FaceAlignment_5PointModel.ipynb)
@@ -36,7 +45,7 @@ Result of test images with face alignment on web application
 
 ## Face Swap
 
-* Select any two person image with front face.
+* Select any two person images with front face.
 * It finds 68 points landmarks for both the faces using DLIB
 * It finds Convex Hull from second image and calculate mask for seamless cloning
 * It find Delaunay traingulation for convex hull points for both the images
@@ -48,7 +57,7 @@ AWS Deployment: [(Link)](aws_deployment/s3-face-swap-aws)
 
 Result of test images with face swap on web application
 
-<p align="center"><img style="max-width:800px" src="doc_images/face_align_result.png"></p>
+<p align="center"><img style="max-width:800px" src="doc_images/face_swap_result.png"></p>
 
 **API Request Message**
 Images are encoded into base64 format and send as string on JSON message.
@@ -89,7 +98,7 @@ im_base64 = img_to_base64(swapped_face)
 
 ## Testing Stategy
 
-File: test_handler.py [(Link)](aws_deployment/s3-face-align-aws/test/test_handler.py)
+File: test_handler.py [(Link)](aws_deployment/s3-face-swap-aws/test/test_handler.py)
 
 test function is developed which create and pass input message as expected by entry function main_handler in handler.py 
 

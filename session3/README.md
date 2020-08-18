@@ -1,4 +1,4 @@
-## Session-3: 
+# Session-3: 
 * **Face Alignment**
 * **Face Swaping**
 * **Using Serverless framework, Lambda function for the model is deployed onto AWS**
@@ -9,11 +9,11 @@
 
 All the web applications are hosted on AWS S3 bucket
 
-1. ### Image Classification) [(Visit)](https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s1_demo.html)
+1. ### Image Classification [(Visit)](https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s1_demo.html)
    **Image Classification Web Link:** https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s1_demo.html
 
-2. ### Drone Classification using MobileNet_V2 pre-trained model [(Visit)](https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s2_demo.html)
-   **Drone Classification Web Link:** https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s2_demo.html
+2. ### Flying Object Classification using MobileNet_V2 pre-trained model [(Visit)](https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s2_demo.html)
+   **Flying Object Classification Web Link:** https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s2_demo.html
 
 3. ### Face Alignment [(Visit)](https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s3_face_align.html)
    **Face Align Web Link:** https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s3_face_align.html
@@ -24,7 +24,7 @@ All the web applications are hosted on AWS S3 bucket
 >NOTE
 > 1. When application is not used for long time(30 mins and more), then on first time API hit, AWS Lambda try to fetch the application package from S3 bucket and perfom initialization.
 > 2. This process is time comsuming and hence API gets timeout during COLD START. 
-> 3. Retry mechanism is implemented and app retry the request for max 4 times on timeout. 
+> 3. Retry mechanism is implemented for max 3 re-attempts on timeout. 
 
 ## Work Summary
 
@@ -133,17 +133,33 @@ if __name__ == '__main__':
     print("Running test..")
     test_handler(FILE1_PATH, FILE2_PATH)
 ```
-## Face Aligment Web Application
+
+# Web App Demo
+
+## Image Classifier
+
+**Face Align Web Link:** https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s1_demo.html
+
+![demo](doc_images/s1_demo.gif)
+
+## Flying Object Classifier
+
+**Face Align Web Link:** https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s2_demo.html
+
+![demo](doc_images/s2_demo.gif)
+
+## Face Aligment
 
 **Face Align Web Link:** https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s3_face_align.html
 
-<p align="center"><img img style="max-width:400px" src="doc_images/face_align_app.png"></p>
+![demo](doc_images/s3_demo_face_align.gif)
 
 
-## Face Swap Web Application
+## Face Swap
+
 **Face Swap Web Link:** https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s3_face_swap.html
 
-<p align="center"><img img style="max-width:400px" src="doc_images/face_swap_app.png"></p>
+![demo](doc_images/s3_demo_face_swap.gif)
 
 
 

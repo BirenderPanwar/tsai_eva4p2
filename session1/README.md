@@ -109,6 +109,6 @@ Web page is hosted on S3 bucket to test the deployment. user can select image an
 
 **Web Link:** https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s1_demo.html
 
-<p align="center"><img img style="max-width:400px" src="doc_images/s1_web_page.png" href="https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s1_demo.html"></p>
+![demo](doc_images/s1_demo.gif)
 
 

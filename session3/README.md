@@ -138,13 +138,13 @@ if __name__ == '__main__':
 
 ## Image Classifier
 
-**Face Align Web Link:** https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s1_demo.html
+**Image Classifier Web Link:** https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s1_demo.html
 
 ![demo](doc_images/s1_demo.gif)
 
 ## Flying Object Classifier
 
-**Face Align Web Link:** https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s2_demo.html
+**Flying Object Classifier Web Link:** https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s2_demo.html
 
 ![demo](doc_images/s2_demo.gif)
 

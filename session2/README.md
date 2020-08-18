@@ -1,8 +1,22 @@
-## Session-2: 
+# Session-2: 
 * **Creating dataset for different type of Drones and flying birds**
 * **Build Neural Network for classifying images using Transfer-Learning for Pre-Trained MobileNet_V2 Network**
 * **Using Serverless framework, model is deployed onto AWS (Refer folder: s2-mobilenet-drone-aws)** [(Link)](s2-mobilenet-drone-aws)
 * **Web page application is hosted on AWS S3 bucket** [(Visit)](https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s2_demo.html)
+
+## Demo site [(Visit)](https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s2_demo.html)
+
+Web page is hosted on S3 bucket to test the deployment. user can select image and check the classification result 
+>NOTE
+> 1. When application is not used for long time(30 mins and more), then on first time API hit, AWS Lambda try to fetch the application package from S3 bucket and perfom initialization.
+> 2. This process is time comsuming and hence API gets timeout during COLD START. 
+> 3. Retry mechanism is implemented and app retry the request for max 4 times on timeout. 
+
+**Web Link:** https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s2_demo.html
+
+![demo](doc_images/s2_demo.gif)
+
+# Work Summary
 
 ## Package Structure
 
@@ -175,19 +189,6 @@ Over all Test Accuracy: 87.75% at Epoch: 29
 
 **Example of Flying Birds Drones which are misclassified by the model:**
 <p align="center"><img style="max-width:800px" src="doc_images/attempt2/Flying Birds_misclassified_images.jpg"></p> 
-
-## Demo site [(Visit)](https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s2_demo.html)
-
-Web page is hosted on S3 bucket to test the deployment. user can select image and check the classification result 
->NOTE
-> 1. When application is not used for long time(30 mins and more), then on first time API hit, AWS Lambda try to fetch the application package from S3 bucket and perfom initialization.
-> 2. This process is time comsuming and hence API gets timeout during COLD START. 
-> 3. Retry mechanism is implemented and app retry the request for max 4 times on timeout. 
-
-**Web Link:** https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s2_demo.html
-
-<p align="center"><img img style="max-width:400px" src="doc_images/s2_web_page.png" href="https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s2_demo.html"></p>
-
 
 
 

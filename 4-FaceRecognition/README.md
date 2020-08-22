@@ -1,7 +1,7 @@
 # FACE RECOGNITION
 
 **This is face Recognition solution to recognize 10 bollywood stars. Around 25 face images of each of the movie star are collected from google images and IMFDB site.
-These data is add to the existing LFW dataset. The model is built using pre-trained InceptionresnetV1 network which is trained on vggface2 dataset.
+These data is add to the existing LFW dataset. The model is built using pre-trained InceptionResnetV1 network which is trained on vggface2 dataset.
 The purpose of using the pre-trained model is to reuse the already learned weights from millions of images on vggface2 dataset**
 
 
@@ -15,13 +15,14 @@ The model is deployed on AWS Lambda using serverless computing framework and the
 
 # Work Summary
 
-Dataset Link: [(boolywood_stars dataset)](https://drive.google.com/file/d/1S3C9DjLRLd-ebV6j7PcGYudqJFcpbjrJ/view?usp=sharing)
-AWS Deployment: [(AWS Lambda function and deployment code)](aws_deployment/s4-face-recognize-aws)
+* Dataset Link: [(boolywood_stars dataset)](https://drive.google.com/file/d/1S3C9DjLRLd-ebV6j7PcGYudqJFcpbjrJ/view?usp=sharing)
+* AWS Deployment: [(AWS Lambda function and deployment code)](aws_deployment/s4-face-recognize-aws)
 
 ## Sample Dataset
 
-25 Front face images of below 10 bollywood starts are collected: 
-Akshay Kumar, Amitabh Bachchan, Amrish Puri, Anil Kapoor, Kajol, Katrina_Kaif, Madhuri Dixit, Rajesh Khanna, Shilpa Shetty, Vinod Khanna
+25 Front face images of following 10 bollywood starts are collected:\ 
+**Akshay Kumar, Amitabh Bachchan, Amrish Puri, Anil Kapoor, Kajol,**\
+**Katrina_Kaif, Madhuri Dixit, Rajesh Khanna, Shilpa Shetty, Vinod Khanna**
 
 Image transformations are applied to the dataset. Dataset is resize to 3X224X224 with following transformation:
 ```python
@@ -38,20 +39,19 @@ train_tf = albumentations.Compose([
                     ToTensor()
         ])
 ```
-**Here is view of few of the customer sample after image transformations**
+**Here is sample images of own collected bollywood star images after image transformations**
 
 ![demo](doc_images/dataset_samples_bws.jpg)
 
 **Sample of LFW dataset after image transformation**
 
-![demo](doc_images/dataset_samples_lfw.jpg)
+![demo](doc_images/dataset_samples_lwf.jpg)
 
-Attempt-1: 
-**Custom images are added to LFW dataset and model is trained**
+## Attempt-1: Custom images are added to LFW dataset and model is trained
  
-Notebook: S4_FaceRecognition_Attempt1_LFW.ipynb [(Link)](notebooks/S4_FaceRecognition_Attempt1_LFW.ipynb)
+**Notebook:** S4_FaceRecognition_Attempt1_LFW.ipynb [(Link)](notebooks/S4_FaceRecognition_Attempt1_LFW.ipynb)
 
-Challenges:
+**Challenges:**
 1. LFW dataset have 5749 classes and most of the classes have only one images.
 2. Only those classes are considered for model building which contains atleast 20 images. Hence 62 classes from LFW dataset are considered for the work
 3. Total of 72 classes are used for model building. 62 from LFW and 10 custom classes. 
@@ -64,10 +64,9 @@ Testing  best result: Accuracy: 38.02 at Epoch 90
 Accuracy Gap: 1.42
 ```
 
-Attempt-2: 
-**Only Custom images are used for training**
+## Attempt-2: Only Custom images are used for training
  
-Notebook: S4_FaceRecognition_Attempt2_BW_STARS.ipynb [(Link)](notebooks/S4_FaceRecognition_Attempt2_BW_STARS.ipynb)
+**Notebook:** S4_FaceRecognition_Attempt2_BW_STARS.ipynb [(Link)](notebooks/S4_FaceRecognition_Attempt2_BW_STARS.ipynb)
 
 **Model Performance**
 
@@ -79,7 +78,7 @@ Accuracy Gap: 8.00
 
 ![demo](doc_images/a2_bws_model_history.jpg)
 
-**Embedding Vector Plot**
+**Embedding Vector Plot**\
 Embedding vector of size 3 is used and below shows how each images are positions
 
 ![demo](doc_images/a2_bws_embedding.jpg)

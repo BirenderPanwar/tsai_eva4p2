@@ -40,12 +40,10 @@ train_tf = albumentations.Compose([
         ])
 ```
 **Here is sample images of own collected bollywood star images after image transformations**
-
-![demo](doc_images/dataset_samples_bws.jpg)
+![sample](doc_images/dataset_samples_bws.jpg)
 
 **Sample of LFW dataset after image transformation**
-
-![demo](doc_images/dataset_samples_lwf.jpg)
+![sample](doc_images/dataset_samples_lwf.jpg)
 
 ## Attempt-1: Custom images are added to LFW dataset and model is trained
  
@@ -76,12 +74,12 @@ Testing  best result: Accuracy: 92.00 at Epoch 479
 Accuracy Gap: 8.00
 ```
 
-![demo](doc_images/a2_bws_model_history.jpg)
+![result](doc_images/a2_bws_model_history.jpg)
 
-**Embedding Vector Plot**\
+**Plotting Embedding Vector**\
 Embedding vector of size 3 is used and below shows how each images are positions
 
-![demo](doc_images/a2_bws_embedding.jpg)
+![result](doc_images/a2_bws_embedding.jpg)
 
 
 

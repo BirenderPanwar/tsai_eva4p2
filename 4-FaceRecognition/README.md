@@ -20,8 +20,8 @@ The model is deployed on AWS Lambda using serverless computing framework and the
 
 ## Sample Dataset
 
-25 Front face images of following 10 bollywood starts are collected:\ 
-**Akshay Kumar, Amitabh Bachchan, Amrish Puri, Anil Kapoor, Kajol,**\
+25 Front face images of following 10 bollywood starts are collected:/ 
+**Akshay Kumar, Amitabh Bachchan, Amrish Puri, Anil Kapoor, Kajol,**/
 **Katrina_Kaif, Madhuri Dixit, Rajesh Khanna, Shilpa Shetty, Vinod Khanna**
 
 Image transformations are applied to the dataset. Dataset is resize to 3X224X224 with following transformation:

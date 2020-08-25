@@ -1,22 +1,35 @@
 # FACE RECOGNITION
 
-**This is face Recognition solution to recognize 10 bollywood stars. Around 25 face images of each of the movie star are collected from google images and IMFDB site.
-These data is add to the existing LFW dataset. The model is built using pre-trained InceptionResnetV1 network which is trained on vggface2 dataset.
-The purpose of using the pre-trained model is to reuse the already learned weights from millions of images on vggface2 dataset**
-
+** This is face Recognition solution to recognize 10 Bollywood Stars. Custom dataset is created for Boolywood Stars and are added to LFW-Funneled dataset.
+The entire entire dataset is then used to build Face Recognition model.**
 
 # Web Applications
 
 The model is deployed on AWS Lambda using serverless computing framework and the web application is hosted on AWS S3 bucket
 
-**Web Application:** https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s4/s4_fr.html
+**Web Application:** https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s4/s4_fr_lfw.html
 
-![demo](doc_images/s4_demo_fr.gif)
+![demo](doc_images/s4_demo_fr_lwf.gif)
 
 # Work Summary
 
 * Dataset Link: [(boolywood_stars dataset)](https://drive.google.com/file/d/1S3C9DjLRLd-ebV6j7PcGYudqJFcpbjrJ/view?usp=sharing)
-* AWS Deployment: [(AWS Lambda function and deployment code)](aws_deployment/s4-face-recognize-aws)
+* AWS Deployment: [(AWS Lambda function and deployment code)](aws_deployment/s4-face-recognize-lfw-aws)
+
+How is a Model Built?
+
+1. IFW dataset is downloaded from IFW Dataset: http://vis-www.cs.umass.edu/lfw/lfw-funneled.tgz. It has total of 5749 classes.
+2. Custom dataset is created for 10 bollywood stars and 25 front face images of each person is collected from google images and IMFDB sources. dataset is maintained in bollywood_stars.zip
+3. Custom dataset of 10 bollywood stars are added to the LFW dataset
+4. Dataset is splitted into train:test ratio of 70:30 and separate train and val folders are created. Since there are classes having only one or two images so train and val split is done at each classes. 
+This is to ensure that for classes having only one or 2 images such samples exists only in train folder as there is no use of having classes in test folder for which there is no corresponding train samples.
+because in such case model will have nothing to learn from training samples.
+5. Image transformation such as Random Brightness, Random Contrast, Random Crop, Horizontal flip and Cut-out strategies are applied.
+6. Pre-trained model **InceptionRestnetV1** which is trained on **vggface2 dataset** is used and their already learned weights from million of faces are used to build the model.
+7. Large Margin Softmax is used which calculate Angular **cosloss** by making use of 128 size embedding vector.
+8. Model is finally deployed on AWS lambda  
+
+![result](doc_images/work_flow.jpg)
 
 ## Sample Dataset
 
@@ -24,47 +37,60 @@ The model is deployed on AWS Lambda using serverless computing framework and the
 **Akshay Kumar, Amitabh Bachchan, Amrish Puri, Anil Kapoor, Kajol,**/
 **Katrina_Kaif, Madhuri Dixit, Rajesh Khanna, Shilpa Shetty, Vinod Khanna**
 
-Image transformations are applied to the dataset. Dataset is resize to 3X224X224 with following transformation:
-```python
-train_tf = albumentations.Compose([
-                    albumentations.Resize(self.size,self.size),
-                    albumentations.RandomBrightness(limit=0.2, p=0.5),
-                    albumentations.RandomContrast(limit=0.2, p=0.5),
-                    albumentations.Rotate(limit=(-10,10), p=0.70),
-                    randomCrop[0], randomCrop[1],
-                    albumentations.HorizontalFlip(p=0.7),
-                    albumentations.ElasticTransform(sigma=50, alpha=1, alpha_affine=10,p=0.10),
-                    albumentations.CoarseDropout(max_holes=1, max_height=64, max_width=64, min_height=16, min_width=16, fill_value=fill_value, p=0.70),
-                    albumentations.Normalize(mean=self.means, std=self.stds),
-                    ToTensor()
-        ])
-```
-**Here is sample images of own collected bollywood star images after image transformations**
+**Here is sample of self collected bollywood star images**
 ![sample](doc_images/dataset_samples_bws.jpg)
 
-**Sample of LFW dataset after image transformation**
-![sample](doc_images/dataset_samples_lwf.jpg)
+Image transformations are applied to the dataset. Dataset is resize to 3X224X224 with following transformation:
+```python
+means, stds = [0.485, 0.456, 0.406], [0.229, 0.224, 0.225]
 
-## Attempt-1: Custom images are added to LFW dataset and model is trained
- 
-**Notebook:** S4_FaceRecognition_Attempt1_LFW.ipynb [(Link)](notebooks/S4_FaceRecognition_Attempt1_LFW.ipynb)
-
-**Challenges:**
-1. LFW dataset have 5749 classes and most of the classes have only one images.
-2. Only those classes are considered for model building which contains atleast 20 images. Hence 62 classes from LFW dataset are considered for the work
-3. Total of 72 classes are used for model building. 62 from LFW and 10 custom classes. 
-
-Model is trained for 100 epochs but model performance is saturated and not able to achieve above 38% accuracy
-
-```Result
-Training best result: Accuracy: 39.44 at Epoch 100
-Testing  best result: Accuracy: 38.02 at Epoch 90
-Accuracy Gap: 1.42
+train_tf = transforms.Compose([
+                transforms.Resize((self.size, self.size)),
+                transforms.ColorJitter(brightness=0.30, contrast=0.30),
+                transforms.RandomCrop(self.size, padding=32, fill=(fill_value[0],fill_value[1],fill_value[2])),
+                transforms.RandomHorizontalFlip(),
+                transforms.ToTensor(),
+                transforms.Normalize(self.means, self.stds),
+                transforms.RandomErasing(scale=(0.02, 0.20), ratio=(0.8, 1.2))                       
+          ])
 ```
 
-## Attempt-2: Only Custom images are used for training
+**Sample of combine dataset(Bollywood stars and LFW) after applying Image Augmentation**
+![sample](doc_images/dataset_samples_lwf.jpg)
+
+## Attempt-1: Entire dataset(LFW + Custom dataset) is used to build FR model
+ 
+**Notebook:** S4_FaceRecognition_Attempt1_LFW.ipynb [(Link)](notebooks/S4_FaceRecognition_Attempt1_LFW.ipynb)
+**AWS Deployment:** [(AWS Lambda function and deployment code)](aws_deployment/s4-face-recognize-lfw-aws)
+
+**Model Performance**
+
+```Result
+Training best result: Accuracy: 98.66 at Epoch 385
+Testing  best result: Accuracy: 66.02 at Epoch 150
+Accuracy Gap: 32.64
+```
+
+```Result
+# Class based accuracy for custom people out of 5759 class of people, 
+Accuracy of Akshay_Kumar : 87.50%
+Accuracy of Amitabh_Bachchan : 12.50%
+Accuracy of Amrish_Puri : 62.50%
+Accuracy of Anil_Kapoor : 87.50%
+Accuracy of Kajol : 50.00%
+Accuracy of Katrina_Kaif : 75.00%
+Accuracy of Madhuri_Dixit : 62.50%
+Accuracy of Rajesh_Khanna : 62.50%
+Accuracy of Shilpa_Shetty : 50.00%
+Accuracy of Vinod_Khanna : 50.00%
+```
+
+![result](doc_images/a1_lwf_model_history.jpg)
+
+## Attempt-2: Only Custom images are used for training (Just for experimenting with short dataset)
  
 **Notebook:** S4_FaceRecognition_Attempt2_BW_STARS.ipynb [(Link)](notebooks/S4_FaceRecognition_Attempt2_BW_STARS.ipynb)
+**AWS Deployment:** [(AWS Lambda function and deployment code)](aws_deployment/s4-face-recognize-aws)
 
 **Model Performance**
 

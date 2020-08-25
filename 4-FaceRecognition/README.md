@@ -44,15 +44,16 @@ Image transformations are applied to the dataset. Dataset is resize to 3X224X224
 ```python
 means, stds = [0.485, 0.456, 0.406], [0.229, 0.224, 0.225]
 
-train_tf = transforms.Compose([
-                transforms.Resize((self.size, self.size)),
-                transforms.ColorJitter(brightness=0.30, contrast=0.30),
-                transforms.RandomCrop(self.size, padding=32, fill=(fill_value[0],fill_value[1],fill_value[2])),
-                transforms.RandomHorizontalFlip(),
-                transforms.ToTensor(),
-                transforms.Normalize(self.means, self.stds),
-                transforms.RandomErasing(scale=(0.02, 0.20), ratio=(0.8, 1.2))                       
-          ])
+train_tf = albumentations.Compose([
+                    albumentations.Resize(self.size,self.size),
+                    albumentations.RandomBrightness(limit=0.3, p=0.70),
+                    albumentations.RandomContrast(limit=0.3, p=0.70),
+                    randomCrop[0], randomCrop[1],
+                    albumentations.HorizontalFlip(p=0.7),
+                    albumentations.CoarseDropout(max_holes=1, max_height=64, max_width=64, min_height=16, min_width=16, fill_value=fill_value, p=0.70),
+                    albumentations.Normalize(mean=self.means, std=self.stds),
+                    ToTensor()
+        ])
 ```
 
 **Sample of combine dataset(Bollywood stars and LFW) after applying Image Augmentation**

@@ -1,6 +1,6 @@
 # FACE RECOGNITION
 
-** This is face Recognition solution to recognize 10 Bollywood Stars. Custom dataset is created for Boolywood Stars and are added to LFW-Funneled dataset.
+**This is face Recognition solution to recognize 10 Bollywood Stars. Custom dataset is created for Boolywood Stars and are added to LFW-Funneled dataset.
 The entire entire dataset is then used to build Face Recognition model.**
 
 # Web Applications
@@ -9,14 +9,14 @@ The model is deployed on AWS Lambda using serverless computing framework and the
 
 **Web Application:** https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s4/s4_fr_lfw.html
 
-![demo](doc_images/s4_demo_fr_lwf.gif)
+![demo](doc_images/s4_demo_fr_lfw.gif)
 
 # Work Summary
 
 * Dataset Link: [(boolywood_stars dataset)](https://drive.google.com/file/d/1S3C9DjLRLd-ebV6j7PcGYudqJFcpbjrJ/view?usp=sharing)
 * AWS Deployment: [(AWS Lambda function and deployment code)](aws_deployment/s4-face-recognize-lfw-aws)
 
-How is a Model Built?
+## How is a Model Built?
 
 1. IFW dataset is downloaded from IFW Dataset: http://vis-www.cs.umass.edu/lfw/lfw-funneled.tgz. It has total of 5749 classes.
 2. Custom dataset is created for 10 bollywood stars and 25 front face images of each person is collected from google images and IMFDB sources. dataset is maintained in bollywood_stars.zip
@@ -61,7 +61,8 @@ train_tf = transforms.Compose([
 ## Attempt-1: Entire dataset(LFW + Custom dataset) is used to build FR model
  
 **Notebook:** S4_FaceRecognition_Attempt1_LFW.ipynb [(Link)](notebooks/S4_FaceRecognition_Attempt1_LFW.ipynb)
-**AWS Deployment:** [(AWS Lambda function and deployment code)](aws_deployment/s4-face-recognize-lfw-aws)
+
+**AWS Deployment:** AWS Lambda function and deployment code [(aws_deployment/s4-face-recognize-lfw-aws)](aws_deployment/s4-face-recognize-lfw-aws)
 
 **Model Performance**
 
@@ -90,7 +91,8 @@ Accuracy of Vinod_Khanna : 50.00%
 ## Attempt-2: Only Custom images are used for training (Just for experimenting with short dataset)
  
 **Notebook:** S4_FaceRecognition_Attempt2_BW_STARS.ipynb [(Link)](notebooks/S4_FaceRecognition_Attempt2_BW_STARS.ipynb)
-**AWS Deployment:** [(AWS Lambda function and deployment code)](aws_deployment/s4-face-recognize-aws)
+
+**AWS Deployment:** AWS Lambda function and deployment code [(aws_deployment/s4-face-recognize-aws)](aws_deployment/s4-face-recognize-aws)
 
 **Model Performance**
 

@@ -46,11 +46,13 @@ As target is to deploy the model without using any pytorch packages or functions
 **Input Image Transformation:** hpe_transform_utils.py [(Link)](notebooks/utils/hpe_transform_utils.py)
 
 **Test Image**
+
 ![result](doc_images/test_image.jpg)
 
-**Model return 16 Joints position in 64X64 data format. Visualization of all the joints are as below**
-
 **Joint Position Display on Input Image** hpe_vis_utils.py [(Link)](notebooks/utils/hpe_vis_utils.py)
+
+Model return 16 Joints position in 64X64 data format. Visualization of all the joints are as below
+
 ```
 # 16 64X64 images output for joints are in these order for Resnet50 model
 JOINT_NAMES = ['R-Ankle', 'R-Knee', 'R-Hip', 'L-Hip', 'L-Knee', 'L-Ankle', 'Pelvis', 'Thorax', 'Upperneck', 'Head', 'R-Wrist', 'R-Elbow', 'R-Shoulder', 'L-Shoulder', 'L-Elbow', 'L-Wrist']
@@ -70,10 +72,12 @@ def vis_joints(img:PIL, output, save_filename=None):
     return
 ```
 
-![result](doc_images/joints_onnx.jpg)
+![result](doc_images/joint_onnx.jpg)
 
 **Skeleton view on input image** hpe_skeleton_utils.py [(Link)](notebooks/utils/hpe_skeleton_utils.py)
-Displaying all Joints position together and connecting the relevent Joint to show skeleton on Input Image
+
+Displaying all Joints position together and connecting the relevant Joint to show skeleton on Input Image
+
 ```
 # Based on Joint position as in JOINT_NAMES, these are the pair we need to join
 JOINT_IDX_PAIRS = [[0,1], [1,2], [2,6],      # R-ankel -> R-Knee, R-Knee -> R-Hip, R-Hip -> Pelvis
@@ -122,7 +126,7 @@ def get_skeleton(img:PIL, output):
             
     return img
 ```
-![result](doc_images/sketelon_onnx.jpg)
+![result](doc_images/skeleton_onnx.jpg)
 
 
 

@@ -1,0 +1,1 @@
+place pose_resnet_50_256x256_quantized.onnx here

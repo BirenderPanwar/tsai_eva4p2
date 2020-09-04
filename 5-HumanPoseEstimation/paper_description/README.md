@@ -2,9 +2,13 @@
 
 **The purpose of this document is to understand model architecture and JointMSeLoss class as explained in the paper and extract important element of the networks design.**
 
-<div align=”center”>**This paper aims to ease this problem by asking a question from the opposite direction, \
+<div align="center">**This paper aims to ease this problem by asking a question from the opposite direction, \
   how good could a simple method be?**
  </div>
+ 
+<p align="center">**This paper aims to ease this problem by asking a question from the opposite direction, \
+  how good could a simple method be?**
+ </p>
 
 Due to rising complexity of model architecture for HPE, this paper aimed to provides simple and effective baseline methods.
 

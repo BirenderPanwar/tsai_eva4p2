@@ -2,13 +2,21 @@
 
 **This is HPE solution to predicts 16 joints of the human body. Pre-Trained Resnet50 model on MPII dataset is used and converted into QNNX format and Quantized and finally deployed on AWs Lambda**
 
+**Model Architecture and simple baseline method as used in paper is explained here** [(Link)](paper_descriptionas)
+
 # Web Applications
 
 The model is deployed on AWS Lambda using serverless computing framework and the web application is hosted on AWS S3 bucket
 
 **Web Application:** https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s5_hpe.html
 
-![demo](doc_images/s5_demo_hpe.gif)
+##
+
+<div align="center"
+ <img src="doc_images/s5_demo_hpe.gif" width="800" height="600"/>
+</div>
+
+##
 
 ## Work Summary
 

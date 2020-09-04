@@ -30,19 +30,20 @@ In contrary, the **simple baseline method** combines the upsampling and convolut
 
 Model uses three upsampling steps and also three levels of non-linearity are used to obtain high-resolution feature maps and heatmaps.
 
-**Pose Tracking Based on Optical Flow**
+**The method uses Pose Tracking Based on Optical Flow**
 
 For Multi-person pose tracking in videos, it first estimate human poses in frames, and then tracks these human poses by performing greedy matching algorithms frame by frame and assigning a unique identification number to those frames.
 Simple Baseline Method follow the same approach with two differences:
-1.  Joint propagation using optical flow
+
+### 1.  Joint propagation using optical flow
 
 It use two different kinds of human boxes, one is from a human detector and the other boxes generated from previous frames using optical flow.
 When the processing frame is difficult for human detectors that could lead to missing detections due to motion blur or occlusion, we could have boxes propagated from previous frames where people have been detected correctly
 
-Benefits:
-1. The joint propagation improves finding more persons that are missed by the detector, possibly due to motion blur or occlusion in video frames
+**Benefits:**
+- The joint propagation improves finding more persons that are missed by the detector, possibly due to motion blur or occlusion in video frames
 
-2. It use flow-based pose similarity metric for greedy matching algorithm
+### 2. It use flow-based pose similarity metric for greedy matching algorithm
 
 - **IoU as the similarity metric:** this metric could be problematic when an instance moves fast thus the boxes do not overlap, and in crowed scenes where boxes may not have the responding relationship with instances.
 - **Pose Similarity**: A more fine-grained metric , which calculates the body joints distance between two instances using Object Keypoint Similarity (OKS). It could also be problematic when the pose of the same person is different across frames.
@@ -50,7 +51,7 @@ due to pose changing.
 
 To deal with challenges posed by above metrics, this simple baseline method make use of flow base pose similarity where it use multiple frames to propagate similarity to next frame and could relink instances even disappearing in the middle frame.
 
-Benifits:
+**Benefits:**
 1. flow-based pose similarity is better than bounding box similarity when person moves fast and their boxes do not overlap
 2. workwell when when people in frames are lost shortly due to occlusion and appear again.
  

@@ -13,7 +13,7 @@ The model is deployed on AWS Lambda using serverless computing framework and the
 ##
 
 <div align="center"
- <img src="doc_images/s5_demo_hpe.gif" width="800" height="600"/>
+ <img src="./doc_images/s5_demo_hpe.gif" width="800" height="600"/>
 </div>
 
 ##

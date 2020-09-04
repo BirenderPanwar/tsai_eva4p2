@@ -38,7 +38,11 @@ Simple Baseline Method follow the same approach with two differences:
 **1.  Joint propagation using optical flow**
 
 It use two different kinds of human boxes, one is from a human detector and the other boxes generated from previous frames using optical flow.
-When the processing frame is difficult for human detectors that could lead to missing detections due to motion blur or occlusion, we could have boxes propagated from previous frames where people have been detected correctly
+When the processing frame is difficult for human detectors that could lead to missing detections due to motion blur or occlusion, we could have boxes propagated from previous frames where people have been detected correctly.
+In short flow based tracking framework make use of boxes from two sources, one from previous frame's result and second from the current frame.
+
+The method maintains the optical flow field F<sub>k−1→k</sub> between frame I<sup>k−1</sup> and I<sup>k</sup>. and use this to estimate the corresponding joints coordinates set.
+
 
 **Benefits:**
 - The joint propagation improves finding more persons that are missed by the detector, possibly due to motion blur or occlusion in video frames

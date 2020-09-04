@@ -2,18 +2,18 @@
 
 **The purpose of this document is to understand model architecture and JointMSeLoss class as explained in the paper and extract important element of the networks design.**
 
-<div align="center">**This paper aims to ease this problem by asking a question from the opposite direction,
+<div align="center">This paper aims to ease this problem by asking a question from the opposite direction,
   <br><b>how good could a simple method be?</b>
  </div>
 
-Due to rising complexity of model architecture for HPE, this paper aimed to provides simple and effective baseline methods.
+<br>Due to rising complexity of model architecture for HPE, this paper aimed to provides simple and effective baseline methods.
 
 ## Model Architecture
 
 The model architecture is based on a few deconvolutional layers added on a backbone network, ResNet and this ease the way to estimate heat maps from deep and low resolution maps.
 It make use of  optical flow based pose propagation and similarity measurement.
 
-**Pose Estimation Using A Deconvolution Head Network**
+### Pose Estimation Using A Deconvolution Head Network
 
 This simple baseline method is using ResNet as backbone network for image feature extraction and simply adds a few deconvolutional layers over the last convolution stage in the ResNet, called C5.
 
@@ -21,21 +21,21 @@ This simple baseline method is using ResNet as backbone network for image featur
 
 Let's have a quick summary of other network to understand the basic differences:
 
-Hourglass: It features in a multi-stage architecture with repeated bottom-up, top-down processing and skip layer feature concatenation.
+- **Hourglass:** It features in a multi-stage architecture with repeated bottom-up, top-down processing and skip layer feature concatenation.
 
-Cascaded pyramid network (CPN): It also involves skip layer feature concatenation and an online hard keypoint mining step.
+- **Cascaded pyramid network (CPN):** It also involves skip layer feature concatenation and an online hard keypoint mining step.
 
 Key difference is in how high resolution feature maps are generated. Hourglass and CPN uses upsampling to increase the feature map resolution and put convolution parameters in other blocks.
 In contrary, the **simple baseline method** combines the upsampling and convolution parameters into deconvolution layers without using skip layer connections.
 
 Model uses three upsampling steps and also three levels of non-linearity are used to obtain high-resolution feature maps and heatmaps.
 
-**The method uses Pose Tracking Based on Optical Flow**
+### The method uses Pose Tracking Based on Optical Flow
 
 For Multi-person pose tracking in videos, it first estimate human poses in frames, and then tracks these human poses by performing greedy matching algorithms frame by frame and assigning a unique identification number to those frames.
 Simple Baseline Method follow the same approach with two differences:
 
-### 1.  Joint propagation using optical flow
+**1.  Joint propagation using optical flow**
 
 It use two different kinds of human boxes, one is from a human detector and the other boxes generated from previous frames using optical flow.
 When the processing frame is difficult for human detectors that could lead to missing detections due to motion blur or occlusion, we could have boxes propagated from previous frames where people have been detected correctly
@@ -43,7 +43,7 @@ When the processing frame is difficult for human detectors that could lead to mi
 **Benefits:**
 - The joint propagation improves finding more persons that are missed by the detector, possibly due to motion blur or occlusion in video frames
 
-### 2. It use flow-based pose similarity metric for greedy matching algorithm
+**2. It use flow-based pose similarity metric for greedy matching algorithm**
 
 - **IoU as the similarity metric:** this metric could be problematic when an instance moves fast thus the boxes do not overlap, and in crowed scenes where boxes may not have the responding relationship with instances.
 - **Pose Similarity**: A more fine-grained metric , which calculates the body joints distance between two instances using Object Keypoint Similarity (OKS). It could also be problematic when the pose of the same person is different across frames.

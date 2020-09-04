@@ -2,7 +2,8 @@
 
 **This is HPE solution to predicts 16 joints of the human body. Pre-Trained Resnet50 model on MPII dataset is used and converted into QNNX format and Quantized and finally deployed on AWs Lambda**
 
-**Model Architecture and simple baseline method as used in paper is explained here** [(Link)](paper_descriptionas)
+## Paper Description [(Link)](paper_description): 
+In above link attempt is made to understand and description the important points of Model Architecture and simple baseline method as used in paper https://arxiv.org/pdf/1804.06208.pdf.
 
 # Web Applications
 

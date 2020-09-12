@@ -26,7 +26,7 @@ Dataset Size: 704
 
 ## GAN Model Creation
  
-**Notebook:** S6_R1GAN_Car.ipynb [(Link)](notebooks/S6_R1GAN_Car.ipynb)
+**Notebook:** /notebooks/S6_R1GAN_Car.ipynb [(Link)](notebooks/S6_R1GAN_Car.ipynb)
 
 ```python
 batch_size=64

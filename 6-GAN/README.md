@@ -2,7 +2,7 @@
 
 **This is implementation of GAN with R1 Regularizer to generate India Car images. GAN network is build on 700+ Indian car dataset collected through google images.**
 
-# Web Applications and AWS Lambda Deployment
+## Web Application and AWS Lambda Deployment
 
 The model is deployed on AWS Lambda using serverless computing framework and the web application is hosted on AWS S3 bucket
 

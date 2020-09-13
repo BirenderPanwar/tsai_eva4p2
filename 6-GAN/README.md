@@ -28,9 +28,11 @@ Dataset Size: 704
  
 **Notebook:** /notebooks/S6_R1GAN_Car.ipynb [(Link)](notebooks/S6_R1GAN_Car.ipynb)
 
+**GAN Network:** /notebooks/models/gan_net.py [(Link)](notebooks/models/gan_net.py)
+
 ```python
 batch_size=64
-epochs=1000
+epochs=1600
 n_noise = 256 # noise vector size for Generator
 ```
 
@@ -44,6 +46,9 @@ n_noise = 256 # noise vector size for Generator
 **Generative and Discriminitive Losses**
 ![result](doc_images/d_g_losses_plot.jpg)
 
+**Interpolation**
+Single image is generated and inperpolated for 10 diferent variants
+![result](doc_images/interpolation.jpg)
 
 
 

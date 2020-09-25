@@ -6,7 +6,7 @@
 
 The model is deployed on AWS Lambda using serverless computing framework and the web application is hosted on AWS S3 bucket
 
-**AWS Deployment Code:** AWS Lambda function and deployment code [(aws_deployment/s7-vae-aws)](aws_deployment/s7-vae-aws)
+**AWS Deployment Code:** AWS Lambda function and deployment code [(aws-deployment/s7-vae-aws)](aws-deployment/s7-vae-aws)
  
 **Web Application:** https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s7/s7_vae.html
 
@@ -24,16 +24,15 @@ Dataset Size: 704
 
 ![sample](doc_images/dataset_samples.jpg)
 
-## GAN Model Creation
+## VAE Model Creation
  
 **Notebook:** /notebooks/S7_VAE_Car.ipynb [(Link)](notebooks/S7_VAE_Car.ipynb)
 
 **VAE Network:** /notebooks/models/vae_net.py [(Link)](notebooks/models/vae_net.py)
 
 ```python
-batch_size=32
-epochs=1600
-latent dimention = 128 # mean and standard deviation vector size for samples nornal distribution for Decoder
+batch_size=64
+latent dimention = 256 # mean and standard deviation vector size for samples nornal distribution for Decoder
 ```
 
 ## Epoch Results

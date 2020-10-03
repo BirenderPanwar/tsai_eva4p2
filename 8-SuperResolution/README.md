@@ -41,6 +41,8 @@ epochs=100
 
 **Epoch wise Real vs Super Resoltuion Images**
 
+> Note: Image sequence shall be read as:  HR Restore Image - HR Image - Super Resolution Image
+
 ![result](doc_images/sf2_epoch_results.jpg)
 
 **Losses plot**

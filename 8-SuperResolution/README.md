@@ -24,7 +24,9 @@ Dataset Size: 1000
 
 ![sample](doc_images/dataset_samples.jpg)
 
-## Image Super Resolution Model Creation
+# Image Super Resolution Model Creation
+
+## SRGAN with upscale_factor=2
  
 **Notebook:** /notebooks/S8_SRGAN_SF2_Drone.ipynb [(Link)](notebooks/S8_SRGAN_SF2_Drone.ipynb)
 
@@ -56,6 +58,15 @@ epochs=100
 ## Test Sample
 
 ![result](doc_images/sf2_result.jpg)
+
+## SRGAN with upscale_factor=4
+ 
+**Notebook:** /notebooks/S8_SRGAN_SF4_Drone.ipynb [(Link)](notebooks/S8_SRGAN_SF4_Drone.ipynb)
+
+## Test Sample
+
+![result](doc_images/sf4_result.jpg)
+
 
 
 

@@ -1,6 +1,6 @@
-# IMAGE SUPER RESOLUION MODEL
+# IMAGE SUPER RESOLUTION MODEL
 
-**This is implementation of Image Super Resoltuion Model for self created Drone images dataset**
+**This is implementation of Image Super Resolution Model for self created Drone images dataset**
 
 ## Web Application and AWS Lambda Deployment
 

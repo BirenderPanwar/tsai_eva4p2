@@ -65,10 +65,8 @@ epochs=100
 
 ## Test Sample
 
-**Sample-1**
 ![result](doc_images/sf4_result.jpg)
 
-**Sample-2**
 ![result](doc_images/sf4_result_1.jpg)
 
 

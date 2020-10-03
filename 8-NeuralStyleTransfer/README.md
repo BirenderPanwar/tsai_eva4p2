@@ -2,6 +2,8 @@
 
 **This is implementation of Neural Style Transfer Model that take an image and reproduce it with a new artistic style. The algorithm takes three images, an input image, a content-image, and a style-image, and changes the input to resemble the content of the content-image and the artistic style of the style-image**
 
+**Web Page:** https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s8/nst/s8_nst.html
+
 ## Description
 
 **Notebook:** /notebooks/S8_NST_Main.ipynb [(Link)](notebooks/S8_NST_Main.ipynb)

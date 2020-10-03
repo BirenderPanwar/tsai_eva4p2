@@ -8,8 +8,7 @@ The model is deployed on AWS Lambda using serverless computing framework and the
 
 **AWS Deployment Code:** AWS Lambda function and deployment code [(aws-deployment/s8-sr-aws)](aws-deployment/s8-sr-aws)
  
-**Web Application:** https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s8/s8_sr.html
-
+**Web Application:** https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s8/sr/s8_sr.html
 
 ## Web App Demonstration
 

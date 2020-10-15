@@ -1,10 +1,10 @@
 # NEURAL WORD EMBEDDING - SENTIMENT ANALYSIS FOR INDIAN MOVIE DATASET
 
-**This is implementation of Transformer model for sentiment analysis which analyse the given review commnet as positive or negative sentiment. The model is trained on IMDB dataset using the BERT(Bidirectional Encoder Representations from Transformer) model. Transformers library is used to get pre-trained transformer and use them as embedding layers. We will freeze (not train) the transformer and only train the remainder of the model which learns from the representations produced by the transformer. In this case we will be using a multi-layer bi-directional GRU, however any model can learn from these representations.**
+**This is implementation of Transformer model for sentiment analysis which analyse the given review comments as positive or negative sentiment. The model is trained on IMDB dataset using the BERT(Bidirectional Encoder Representations from Transformer) model. Transformers library is used to get pre-trained transformer and use them as embedding layers. We will freeze (not train) the transformer and only train the remainder of the model which learns from the representations produced by the transformer.**
 
 > NOTE
-Reference: https://github.com/bentrevett/pytorch-sentiment-analysis
-Paper: https://arxiv.org/pdf/1706.03762.pdf (Transformer model)
+- Reference: https://github.com/bentrevett/pytorch-sentiment-analysis
+- Paper: https://arxiv.org/pdf/1706.03762.pdf (Transformer model)
 
 ## Web Application and AWS Lambda Deployment
 
@@ -25,7 +25,7 @@ The model is deployed on AWS Lambda using serverless computing framework and the
 
 **Test Result**
 ```bash
-
+Test Loss: 0.206 | Test Acc: 91.88%
 ```
 
 # Another Approach: CNN Model for Sentiment Analysis

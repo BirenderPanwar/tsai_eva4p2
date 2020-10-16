@@ -6,19 +6,12 @@
 - Reference: https://github.com/bentrevett/pytorch-sentiment-analysis
 - Paper: https://arxiv.org/pdf/1706.03762.pdf (Transformer model)
 
-## Web Application and AWS Lambda Deployment
+## AWS Lambda Deployment
 
 The model is deployed on AWS Lambda using serverless computing framework and the web application is hosted on AWS S3 bucket
 
 **AWS Deployment Code:** AWS Lambda function and deployment code [(aws-deployment/s9-nwe-aws)](aws-deployment/s9-nwe-aws)
  
-**Web Application:** https://s3.ap-south-1.amazonaws.com/www.aijourney.com/eva4p2/s9/nwe/s9_nwer.html
-
-## Web App Demonstration
-
-![demo](doc_images/s9_demo_nwe.gif)
-
-
 # Transformer Model Creation
 
 **Notebook:** /notebooks/Transformers_for_Sentiment_Analysis.ipynb.ipynb [(Link)](notebooks/Transformers_for_Sentiment_Analysis.ipynb)

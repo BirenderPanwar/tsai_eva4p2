@@ -17,6 +17,7 @@ This is implementation of Neural Language translator(German to English) using At
 ## Model Performance
 
 **perplexity per epoch**
+
 ![result](doc_images/perplexity.jpg)
 
 **Sample Translation Result**
